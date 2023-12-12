@@ -1,10 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');  // Importa el paquete cors
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 8000;
 
 // Conectar a MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -25,7 +24,9 @@ app.use(cors());
 const productRoutes = require('./routes/productRoutes');
 app.use('/products', productRoutes);
 
-// Iniciar el servidor
-app.listen(PORT, () => {
+// Iniciar el servidor en un puerto aleatorio
+const server = app.listen(0, () => {
+  const PORT = server.address().port;
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
+
