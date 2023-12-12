@@ -7,7 +7,7 @@ const productController = require('../controllers/productController');
 router.get('/price/:user_id/:nombre_producto', productController.getPrice);
 
 // Ruta para obtener productos en stock
-router.get('/products', productController.getProducts);
+router.get('/list', productController.getProducts);
 
 router.get('/test', (req, res) => {
     res.send('Hello from /test');
