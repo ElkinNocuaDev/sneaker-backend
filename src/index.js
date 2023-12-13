@@ -26,7 +26,7 @@ app.use('/products', productRoutes);
 
 // Iniciar el servidor en un puerto aleatorio
 const server = app.listen(0, () => {
-  // No se imprimirá el puerto en la consola
-  console.log('Servidor escuchando en un puerto aleatorio');
+  const PORT = server.address().port;
+  console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
 
