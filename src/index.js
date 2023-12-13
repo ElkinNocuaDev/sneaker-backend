@@ -25,8 +25,8 @@ const productRoutes = require('./routes/productRoutes');
 app.use('/products', productRoutes);
 
 // Iniciar el servidor en un puerto aleatorio
-const server = app.listen(0, () => {
-  const PORT = server.address().port;
+const PORT = process.env.PORT || 3000;
+const server = app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
 
